@@ -1,0 +1,37 @@
+.nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    height: 100%;
+}
+
+.nav li {
+    float: left;
+    height: 100%;
+}
+
+.nav li a {
+    display: block;
+    text-align: center;
+    text-decoration: none;
+    color: white;
+    height: 100%;
+    padding: 50% 10px;
+}
+
+/* Change the link color to #111 (black) on hover */
+.nav li a:hover {
+    background-color: #111;
+}
+
+.nav {
+    display: flex;
+    background-color: #333;
+    color: white;
+    justify-content: space-between;
+}
+
+.nav.links {
+
+}
