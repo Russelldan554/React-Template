@@ -1,13 +1,20 @@
-import React, {Component} from 'react';
+import React, { useState } from 'react';
 
-class Home extends Component {
-    render() {
-        return (
-            <div>
-              Home
-            </div>
-        );
-    }
+function Home(props) {
+    const [name, setName] = useState("");
+
+    return (
+        <div>
+            Hello, {name}!
+            <br />
+            <br />
+
+            <input
+                onChange={e => setName(e.target.value)}
+                placeholder={"Enter Your Name"}
+            />
+        </div>
+    );
 }
 
 export default Home;
