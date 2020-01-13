@@ -1,14 +1,14 @@
 import React, {Component} from 'react';
-import List from "../Components/List";
+import Form from "../Components/Form";
 
-class Home extends Component {
+class AddArticle extends Component {
     render() {
         return (
             <div>
-                <List />
+                <Form />
             </div>
         );
     }
 }
 
-export default Home;
+export default AddArticle;
