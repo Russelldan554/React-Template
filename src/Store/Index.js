@@ -1,27 +1,15 @@
-// src/js/store/index.js
-import { createStore, applyMiddleware, combineReducers, compose } from "redux";
+import { configureStore } from '@reduxjs/toolkit'
 import thunk from "redux-thunk";
-import articles from "./Articles/Reducer";
+import articlesReducer from "./Articles/Reducer";
 
-const composeEnhancers = typeof window === 'object' &&
-window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ ?   
-  window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__({
-    // Specify extension’s options like name, actionsBlacklist, actionsCreators, serialize...
-  }) : compose;
+const rootReducer = {
+    articles: articlesReducer,
+}
 
-const enhancer = composeEnhancers(
-  applyMiddleware(thunk),
-  // other store enhancers if any
-);
-
-const rootReducer = combineReducers({
-    articles,
+const store = configureStore({
+  reducer: rootReducer,
+  middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(thunk),
+  devTools: process.env.NODE_ENV !== 'production',
 });
-
-
-const store = createStore(
-    rootReducer, 
-    enhancer
-);
 
 export default store;

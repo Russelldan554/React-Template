@@ -1,7 +1,7 @@
 import React from 'react';
 import { useDispatch, useSelector } from "react-redux";
 import List from "../Components/List";
-import { addArticle } from "../Store/Articles/Actions";
+import { addRandomArticle } from "../Store/Articles/Actions";
 
 export const Home = () => {
     const dispatch = useDispatch();
@@ -14,7 +14,7 @@ export const Home = () => {
         <div>
             { loading ? 'LOADING...' : 
                 <div>
-                    <button onClick={() => dispatch(addArticle())}>
+                    <button onClick={() => dispatch(addRandomArticle())}>
                         Get random article
                     </button>
                     {error && <div>
