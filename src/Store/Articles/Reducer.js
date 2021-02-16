@@ -6,15 +6,19 @@ const articlesSlice = createSlice({
     initialState: {
         articles: [],
         loading: false,
-        error: ''
+        error: '',
+        counter: 0
     },
     reducers: {
       addArticle(state, { payload }) {
         state.articles = state.articles.concat(payload)
+      },
+      increment(state) {
+          state.counter++
       }
     },
     extraReducers: {
-      [aa.addRandomArticle.pending]: (state, { payload }) => {
+      [aa.addRandomArticle.pending]: (state) => {
         state.loading = true
       },
       [aa.addRandomArticle.fulfilled]: (state, { payload }) => ({
@@ -24,12 +28,12 @@ const articlesSlice = createSlice({
       }),
       [aa.addRandomArticle.rejected]: (state, action) => ({
         ...state,
-        error: action.payload,
+        error: action.error?.message || 'Error',
         loading: false
       }),
     },
 });
   
 
-export const { addArticle } = articlesSlice.actions
+export const { addArticle, increment } = articlesSlice.actions
 export default articlesSlice.reducer;
