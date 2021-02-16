@@ -4,8 +4,6 @@ import NavBar from "../Components/NavBar";
 
 //Import Views
 import Home from '../Views/Home'
-import AddArticle from '../Views/AddArticle'
-
 
 class Container extends React.Component {
     render() {
@@ -14,9 +12,6 @@ class Container extends React.Component {
                 <BrowserRouter>
                     <NavBar/>
                     <Switch>
-                        <Route path="/addArticle">
-                            <AddArticle />
-                        </Route>
                         <Route path="/">
                             <Home />
                         </Route>
