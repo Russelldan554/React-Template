@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { useDispatch } from 'react-redux'
+import { useDispatch } from 'react-redux';
+import { addArticle } from '../Store/Articles/Reducer'
 
 const AddArticle = () => {
     const dispatch = useDispatch();
@@ -16,7 +17,7 @@ const AddArticle = () => {
             <textarea onChange={(e) => setBody(e.target.value) } />
             <br /><br />
             
-            <button onClick={() => dispatch()}>Add</button>
+            <button onClick={() => dispatch(addArticle({ title, body }))}>Add</button>
         </div>
     );
 }
