@@ -1,11 +1,18 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { addArticle } from '../Store/Articles/Reducer'
+import { useHistory } from 'react-router-dom'
 
 const AddArticle = () => {
     const dispatch = useDispatch();
+    const history = useHistory();
     const [title, setTitle] = useState('')
     const [body, setBody] = useState('')
+
+    const handleAddArticle = async () => {
+        dispatch(addArticle({ title, body }))
+        history.push('/');
+    }
 
     return (
         <div>
@@ -17,7 +24,7 @@ const AddArticle = () => {
             <textarea onChange={(e) => setBody(e.target.value) } />
             <br /><br />
             
-            <button onClick={() => dispatch(addArticle({ title, body }))}>Add</button>
+            <button onClick={() => handleAddArticle()}>Add</button>
         </div>
     );
 }
